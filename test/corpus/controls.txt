@@ -1,0 +1,184 @@
+==================
+Simple control
+==================
+
+control MyIngress(inout headers_t hdr) {
+    apply {
+        if (hdr.ethernet.ether_type == 16w0x0800) {
+            hdr.ethernet.dst_addr = hdr.ethernet.src_addr;
+        }
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration
+      (name
+        (nonTypeName
+          (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (direction)
+            (type_ref
+              (type_name
+                (identifier)))
+            (name
+              (nonTypeName
+                (identifier)))))))
+    (control_body
+      (block_statement
+        (conditional_statement
+          (type_name
+            (identifier))
+          (member
+            (name
+              (nonTypeName
+                (identifier))))
+          (member
+            (name
+              (nonTypeName
+                (identifier))))
+          (integer_literal)
+          (block_statement
+            (assignment_or_method_call_statement
+              (lvalue
+                (lvalue
+                  (lvalue
+                    (prefixedNonTypeName
+                      (nonTypeName
+                        (identifier))))
+                  (member
+                    (name
+                      (nonTypeName
+                        (identifier)))))
+                (member
+                  (name
+                    (nonTypeName
+                      (identifier)))))
+              (type_name
+                (identifier))
+              (member
+                (name
+                  (nonTypeName
+                    (identifier))))
+              (member
+                (name
+                  (nonTypeName
+                    (identifier)))))))))))
+
+==================
+Control with table
+==================
+
+control MyIngress() {
+    table my_table {
+        key = {
+            hdr.ethernet.dst_addr: exact;
+        }
+        actions = {
+            forward;
+            drop;
+        }
+    }
+    apply {
+        my_table.apply();
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration
+      (name
+        (nonTypeName
+          (identifier))))
+    (control_local_declaration
+      (table_declaration
+        (name
+          (nonTypeName
+            (identifier)))
+        (table_property
+          (key_element
+            (type_name
+              (identifier))
+            (member
+              (name
+                (nonTypeName
+                  (identifier))))
+            (member
+              (name
+                (nonTypeName
+                  (identifier))))
+            (name
+              (nonTypeName
+                (identifier)))))
+        (table_property
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier)))))
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))))))
+    (control_body
+      (block_statement
+        (assignment_or_method_call_statement
+          (lvalue
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            (member
+              (name
+                (nonTypeName)))))))))
+
+==================
+Action declaration
+==================
+
+action forward(PortId_t port) {
+    hdr.ethernet.dst_addr = port;
+}
+
+---
+
+(source_file
+  (action_declaration
+    (name
+      (nonTypeName
+        (identifier)))
+    (parameter_list
+      (non_empty_parameter_list
+        (parameter
+          (type_ref
+            (type_name
+              (identifier)))
+          (name
+            (nonTypeName
+              (identifier))))))
+    (block_statement
+      (assignment_or_method_call_statement
+        (lvalue
+          (lvalue
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            (member
+              (name
+                (nonTypeName
+                  (identifier)))))
+          (member
+            (name
+              (nonTypeName
+                (identifier)))))
+        (prefixedNonTypeName
+          (nonTypeName
+            (identifier)))))))

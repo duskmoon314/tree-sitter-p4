@@ -1,0 +1,157 @@
+==================
+Constant declaration
+==================
+
+const bit<8> X = 5;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref (base_type (integer_literal)))
+    (name (nonTypeName (identifier)))
+    (integer_literal)))
+
+==================
+Constant declaration with hex value
+==================
+
+const bit<16> ETHERTYPE_IPV4 = 16w0x0800;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref (base_type (integer_literal)))
+    (name (nonTypeName (identifier)))
+    (integer_literal)))
+
+==================
+Typedef declaration
+==================
+
+typedef bit<48> mac_addr_t;
+
+---
+
+(source_file
+  (type_declaration
+    (typedef_declaration
+      (type_ref (base_type (integer_literal)))
+      (name (nonTypeName (identifier))))))
+
+==================
+Type declaration (distinct type)
+==================
+
+type bit<9> PortId_t;
+
+---
+
+(source_file
+  (type_declaration
+    (typedef_declaration
+      (type_ref (base_type (integer_literal)))
+      (name (nonTypeName (identifier))))))
+
+==================
+Header declaration
+==================
+
+header ethernet_h {
+    bit<48> dst_addr;
+    bit<48> src_addr;
+    bit<16> ether_type;
+}
+
+---
+
+(source_file
+  (type_declaration
+    (derived_type_declaration
+      (header_declaration
+        (name (nonTypeName (identifier)))
+        (struct_field
+          (type_ref (base_type (integer_literal)))
+          (name (nonTypeName (identifier))))
+        (struct_field
+          (type_ref (base_type (integer_literal)))
+          (name (nonTypeName (identifier))))
+        (struct_field
+          (type_ref (base_type (integer_literal)))
+          (name (nonTypeName (identifier))))))))
+
+==================
+Struct declaration
+==================
+
+struct headers_t {
+    ethernet_h ethernet;
+}
+
+---
+
+(source_file
+  (type_declaration
+    (derived_type_declaration
+      (struct_declaration
+        (name (nonTypeName (identifier)))
+        (struct_field
+          (type_ref (type_name (identifier)))
+          (name (nonTypeName (identifier))))))))
+
+==================
+Enum declaration
+==================
+
+enum MeterType_t {
+    PACKETS,
+    BYTES
+}
+
+---
+
+(source_file
+  (type_declaration
+    (derived_type_declaration
+      (enum_declaration
+        (name (nonTypeName (identifier)))
+        (identifier_list
+          (name (nonTypeName (identifier)))
+          (name (nonTypeName (identifier))))))))
+
+==================
+Error declaration
+==================
+
+error {
+    NoError,
+    PacketTooShort
+}
+
+---
+
+(source_file
+  (error_declaration
+    (identifier_list
+      (name (nonTypeName (identifier)))
+      (name (nonTypeName (identifier))))))
+
+==================
+Match kind declaration
+==================
+
+match_kind {
+    exact,
+    ternary,
+    lpm
+}
+
+---
+
+(source_file
+  (match_kind_declaration
+    (identifier_list
+      (name (nonTypeName (identifier)))
+      (name (nonTypeName (identifier)))
+      (name (nonTypeName (identifier))))))

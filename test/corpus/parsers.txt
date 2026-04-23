@@ -1,0 +1,105 @@
+==================
+Simple parser
+==================
+
+parser MyParser(packet_in pkt, out headers_t hdr) {
+    state start {
+        transition accept;
+    }
+}
+
+---
+
+(source_file
+  (parser_declaration
+    (parser_type_declaration
+      (name
+        (nonTypeName
+          (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref
+              (type_name
+                (identifier)))
+            (name
+              (nonTypeName
+                (identifier))))
+          (parameter
+            (direction)
+            (type_ref
+              (type_name
+                (identifier)))
+            (name
+              (nonTypeName
+                (identifier)))))))
+    (parser_state
+      (name
+        (nonTypeName
+          (identifier)))
+      (transition_statement
+        (name
+          (nonTypeName
+            (identifier)))))))
+
+==================
+Parser with select
+==================
+
+parser MyParser(packet_in pkt) {
+    state start {
+        transition select(pkt.lookahead<bit<8>>()) {
+            8w0x08: parse_ipv4;
+            default: reject;
+        }
+    }
+}
+
+---
+
+(source_file
+  (parser_declaration
+    (parser_type_declaration
+      (name
+        (nonTypeName
+          (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref
+              (type_name
+                (identifier)))
+            (name
+              (nonTypeName
+                (identifier)))))))
+    (parser_state
+      (name
+        (nonTypeName
+          (identifier)))
+      (transition_statement
+        (select_expression
+          (expression_list
+            (type_name
+              (identifier))
+            (member
+              (name
+                (nonTypeName
+                  (identifier))))
+            (real_type_argument_list
+              (real_type_arg
+                (type_ref
+                  (base_type
+                    (integer_literal))))))
+          (select_case
+            (keyset_expression
+              (simple_keyset_expression
+                (integer_literal)))
+            (name
+              (nonTypeName
+                (identifier))))
+          (select_case
+            (keyset_expression
+              (simple_keyset_expression))
+            (name
+              (nonTypeName
+                (identifier)))))))))

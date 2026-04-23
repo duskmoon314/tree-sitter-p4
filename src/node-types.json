@@ -1,0 +1,3517 @@
+[
+  {
+    "type": "action_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "action_ref",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "action_ref_with_annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "action_ref",
+          "named": true
+        },
+        {
+          "type": "annotations",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_body",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_annotation_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_body",
+          "named": true
+        },
+        {
+          "type": "annotation_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_token",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "argument",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "non_empty_arg_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "array_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assignment_or_method_call_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "lvalue",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_argument_list",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "base_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "assignment_or_method_call_statement",
+          "named": true
+        },
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "conditional_statement",
+          "named": true
+        },
+        {
+          "type": "constant_declaration",
+          "named": true
+        },
+        {
+          "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "direct_application",
+          "named": true
+        },
+        {
+          "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "exit_statement",
+          "named": true
+        },
+        {
+          "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "variable_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "break_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "conditional_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "assignment_or_method_call_statement",
+          "named": true
+        },
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "conditional_statement",
+          "named": true
+        },
+        {
+          "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "direct_application",
+          "named": true
+        },
+        {
+          "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "exit_statement",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constructor_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "continue_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "control_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "control_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "constructor_parameters",
+          "named": true
+        },
+        {
+          "type": "control_body",
+          "named": true
+        },
+        {
+          "type": "control_local_declaration",
+          "named": true
+        },
+        {
+          "type": "control_type_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "control_local_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "action_declaration",
+          "named": true
+        },
+        {
+          "type": "constant_declaration",
+          "named": true
+        },
+        {
+          "type": "instantiation",
+          "named": true
+        },
+        {
+          "type": "table_declaration",
+          "named": true
+        },
+        {
+          "type": "variable_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "control_type_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "derived_type_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "enum_declaration",
+          "named": true
+        },
+        {
+          "type": "header_declaration",
+          "named": true
+        },
+        {
+          "type": "header_union_declaration",
+          "named": true
+        },
+        {
+          "type": "struct_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "direct_application",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "specialized_type",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "direction",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "empty_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "action_ref",
+          "named": true
+        },
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "entry_priority",
+          "named": true
+        },
+        {
+          "type": "keyset_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entry_priority",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "identifier_list",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "specified_identifier_list",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "error_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exit_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "expression_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "extern_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "function_prototype",
+          "named": true
+        },
+        {
+          "type": "method_prototype",
+          "named": true
+        },
+        {
+          "type": "nonTypeName",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "assignment_or_method_call_statement",
+          "named": true
+        },
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "conditional_statement",
+          "named": true
+        },
+        {
+          "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "direct_application",
+          "named": true
+        },
+        {
+          "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "exit_statement",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "lvalue",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "type_argument_list",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "function_prototype",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_prototype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "type_or_void",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "header_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "struct_field",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "header_union_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "struct_field",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "identifier_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "instantiation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "obj_initializer",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "key_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "keyset_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "simple_keyset_expression",
+          "named": true
+        },
+        {
+          "type": "tuple_keyset_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "kv_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kv_pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "kv_pair",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lvalue",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "lvalue",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_kind_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "member",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "method_prototype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "function_prototype",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "nonTypeName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "named_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "specialized_type",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nonBraceExpression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "nonBraceExpression",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nonTableKwName",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nonTypeName",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_empty_arg_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_empty_parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "obj_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "function_declaration",
+          "named": true
+        },
+        {
+          "type": "instantiation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "obj_initializer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "obj_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "package_type_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "direction",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "non_empty_parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parser_block_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "parser_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parser_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "constructor_parameters",
+          "named": true
+        },
+        {
+          "type": "parser_local_element",
+          "named": true
+        },
+        {
+          "type": "parser_state",
+          "named": true
+        },
+        {
+          "type": "parser_type_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parser_local_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "constant_declaration",
+          "named": true
+        },
+        {
+          "type": "instantiation",
+          "named": true
+        },
+        {
+          "type": "value_set_declaration",
+          "named": true
+        },
+        {
+          "type": "variable_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parser_state",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "parser_statement",
+          "named": true
+        },
+        {
+          "type": "transition_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parser_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_or_method_call_statement",
+          "named": true
+        },
+        {
+          "type": "conditional_statement",
+          "named": true
+        },
+        {
+          "type": "constant_declaration",
+          "named": true
+        },
+        {
+          "type": "direct_application",
+          "named": true
+        },
+        {
+          "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "parser_block_statement",
+          "named": true
+        },
+        {
+          "type": "variable_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parser_type_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prefixedNonTypeName",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "nonTypeName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "real_type_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "real_type_argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "real_type_arg",
+          "named": true
+        },
+        {
+          "type": "type_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "reduced_simple_keyset_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "return_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_case",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyset_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "select_case",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "simple_expression_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "simple_keyset_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "simple_keyset_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "action_declaration",
+          "named": true
+        },
+        {
+          "type": "constant_declaration",
+          "named": true
+        },
+        {
+          "type": "control_declaration",
+          "named": true
+        },
+        {
+          "type": "error_declaration",
+          "named": true
+        },
+        {
+          "type": "extern_declaration",
+          "named": true
+        },
+        {
+          "type": "function_declaration",
+          "named": true
+        },
+        {
+          "type": "instantiation",
+          "named": true
+        },
+        {
+          "type": "match_kind_declaration",
+          "named": true
+        },
+        {
+          "type": "parser_declaration",
+          "named": true
+        },
+        {
+          "type": "type_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "specialized_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type_argument_list",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "specified_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "specified_identifier_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "specified_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "struct_field",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "structured_annotation_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switch_case",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "switch_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switch_label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "nonBraceExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switch_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "switch_case",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "table_property",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table_property",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "action_ref_with_annotations",
+          "named": true
+        },
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "entry",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "key_element",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "nonTableKwName",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "transition_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "select_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tuple_keyset_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "reduced_simple_keyset_expression",
+          "named": true
+        },
+        {
+          "type": "simple_expression_list",
+          "named": true
+        },
+        {
+          "type": "simple_keyset_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tuple_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_argument_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "nonTypeName",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "control_type_declaration",
+          "named": true
+        },
+        {
+          "type": "derived_type_declaration",
+          "named": true
+        },
+        {
+          "type": "package_type_declaration",
+          "named": true
+        },
+        {
+          "type": "parser_type_declaration",
+          "named": true
+        },
+        {
+          "type": "typedef_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_or_void",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_ref",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "specialized_type",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedef_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "derived_type_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value_set_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotations",
+          "named": true
+        },
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "kv_list",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "prefixedNonTypeName",
+          "named": true
+        },
+        {
+          "type": "real_type_argument_list",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "type_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "%=",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": "&&&",
+    "named": false
+  },
+  {
+    "type": "&=",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "*=",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "++",
+    "named": false
+  },
+  {
+    "type": "+=",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "-=",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "..",
+    "named": false
+  },
+  {
+    "type": "...",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "/=",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<<=",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
+    "named": false
+  },
+  {
+    "type": ">>=",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "^=",
+    "named": false
+  },
+  {
+    "type": "_",
+    "named": false
+  },
+  {
+    "type": "abstract",
+    "named": false
+  },
+  {
+    "type": "action",
+    "named": false
+  },
+  {
+    "type": "actions",
+    "named": false
+  },
+  {
+    "type": "apply",
+    "named": false
+  },
+  {
+    "type": "bit",
+    "named": false
+  },
+  {
+    "type": "bool",
+    "named": false
+  },
+  {
+    "type": "break",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "const",
+    "named": false
+  },
+  {
+    "type": "continue",
+    "named": false
+  },
+  {
+    "type": "control",
+    "named": false
+  },
+  {
+    "type": "default",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "entries",
+    "named": false
+  },
+  {
+    "type": "enum",
+    "named": false
+  },
+  {
+    "type": "error",
+    "named": false
+  },
+  {
+    "type": "exit",
+    "named": false
+  },
+  {
+    "type": "extern",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
+    "type": "header",
+    "named": false
+  },
+  {
+    "type": "header_union",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "inout",
+    "named": false
+  },
+  {
+    "type": "int",
+    "named": false
+  },
+  {
+    "type": "integer_literal",
+    "named": true
+  },
+  {
+    "type": "key",
+    "named": false
+  },
+  {
+    "type": "list",
+    "named": false
+  },
+  {
+    "type": "match_kind",
+    "named": false
+  },
+  {
+    "type": "out",
+    "named": false
+  },
+  {
+    "type": "package",
+    "named": false
+  },
+  {
+    "type": "parser",
+    "named": false
+  },
+  {
+    "type": "preprocessor_directive",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "priority",
+    "named": false
+  },
+  {
+    "type": "return",
+    "named": false
+  },
+  {
+    "type": "select",
+    "named": false
+  },
+  {
+    "type": "state",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": false
+  },
+  {
+    "type": "string_literal",
+    "named": true
+  },
+  {
+    "type": "struct",
+    "named": false
+  },
+  {
+    "type": "switch",
+    "named": false
+  },
+  {
+    "type": "table",
+    "named": false
+  },
+  {
+    "type": "this",
+    "named": false
+  },
+  {
+    "type": "transition",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "tuple",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "typedef",
+    "named": false
+  },
+  {
+    "type": "value_set",
+    "named": false
+  },
+  {
+    "type": "varbit",
+    "named": false
+  },
+  {
+    "type": "void",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "{#",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "|+|",
+    "named": false
+  },
+  {
+    "type": "|+|=",
+    "named": false
+  },
+  {
+    "type": "|-|",
+    "named": false
+  },
+  {
+    "type": "|-|=",
+    "named": false
+  },
+  {
+    "type": "|=",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  }
+]

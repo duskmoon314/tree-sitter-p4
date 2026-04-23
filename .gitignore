@@ -46,3 +46,7 @@ zig-out/
 *.tgz
 *.zip
 *.jar
+
+# Reference documents (not to be committed)
+grammar.adoc
+P4-16-spec.adoc

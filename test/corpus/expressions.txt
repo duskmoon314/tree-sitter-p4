@@ -1,0 +1,359 @@
+==================
+Integer literals
+==================
+
+const bit<8> A = 5;
+const bit<8> B = 8w5;
+const bit<16> C = 16w0x0800;
+const bit<1> D = 1w1;
+const bit<8> E = 8w0b1010;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)))
+
+==================
+Boolean literals
+==================
+
+const bool X = true;
+const bool Y = false;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier))))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))))
+
+==================
+String literal
+==================
+
+const string S = "hello";
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))
+    (string_literal)))
+
+==================
+Arithmetic expressions
+==================
+
+const bit<8> A = 1 + 2;
+const bit<8> B = 3 * 4;
+const bit<8> C = 10 - 5;
+const bit<8> D = 8 / 2;
+const bit<8> E = 7 % 3;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal)))
+
+==================
+Bitwise expressions
+==================
+
+const bit<8> A = 0xFF & 0x0F;
+const bit<8> B = 0xF0 | 0x0F;
+const bit<8> C = 0xFF ^ 0x0F;
+const bit<8> D = ~0xFF;
+const bit<8> E = 1 << 4;
+const bit<8> F = 0x80 >> 1;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal)))
+
+==================
+Comparison expressions
+==================
+
+const bool A = 1 == 2;
+const bool B = 1 != 2;
+const bool C = 1 < 2;
+const bool D = 1 > 2;
+const bool E = 1 <= 2;
+const bool F = 1 >= 2;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal)))
+
+==================
+Logical expressions
+==================
+
+const bool A = true && false;
+const bool B = true || false;
+const bool C = !true;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier))))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier))))
+  (constant_declaration
+    (type_ref
+      (base_type))
+    (name
+      (nonTypeName
+        (identifier)))))
+
+==================
+Ternary expression
+==================
+
+const bit<8> X = true ? 1 : 2;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (integer_literal)
+    (integer_literal)))
+
+==================
+Member access
+==================
+
+const bit<48> X = hdr.ethernet.dst_addr;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref
+      (base_type
+        (integer_literal)))
+    (name
+      (nonTypeName
+        (identifier)))
+    (type_name
+      (identifier))
+    (member
+      (name
+        (nonTypeName
+          (identifier))))
+    (member
+      (name
+        (nonTypeName
+          (identifier))))))
