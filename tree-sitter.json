@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "p4",
+      "camelcase": "P4",
+      "title": "P4",
+      "scope": "source.p4",
+      "file-types": [
+        "p4"
+      ],
+      "injection-regex": "^p4$",
+      "class-name": "TreeSitterP4"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Programming Protocol-independent Packet Processors",
+    "authors": [
+      {
+        "name": "duskmoon (Campbell He)",
+        "email": "kp.campbell.he@duskmoon314.com",
+        "url": "duskmoon314.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/duskmoon314/tree-sitter-p4",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": false,
+    "zig": true
+  }
+}
