@@ -85,11 +85,8 @@
   "error"
 ] @type.builtin
 
-; Type references
-(type_name (identifier)) @type
-
-; Base types with width
-(base_type) @type.builtin
+; Type references (only inside type_ref context, not member access)
+(type_ref (type_name (identifier))) @type
 
 ; Function declarations
 (function_declaration
@@ -195,7 +192,6 @@
   ":"
   "@"
   "?"
-  "!"
 ] @punctuation.delimiter
 
 ; Annotations
@@ -242,5 +238,27 @@
 (parser_state
   name: (name (nonTypeName (identifier))) @function)
 
-; Direction keywords
-(direction) @keyword.modifier
+; Transition targets (parser state references)
+(transition_statement
+  target: (name (nonTypeName (identifier)) @function))
+
+; Select case targets (parser state references in select expressions)
+(select_case
+  (name (nonTypeName (identifier))) @function)
+
+; Action references in tables
+(action_ref
+  name: (prefixedNonTypeName (nonTypeName (identifier)) @function))
+
+; Action references with annotations in tables
+(action_ref_with_annotations
+  (action_ref
+    name: (prefixedNonTypeName (nonTypeName (identifier)) @function)))
+
+; Error declaration members
+(error_declaration
+  (identifier_list
+    (name (nonTypeName (identifier))) @constant))
+
+; Fallback: default color for all unmatched identifiers (must be last)
+(identifier) @variable
