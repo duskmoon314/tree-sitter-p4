@@ -13,7 +13,10 @@
       "class-name": "TreeSitterP4",
       "highlights": "queries/highlights.scm",
       "locals": "queries/locals.scm",
-      "tags": "queries/tags.scm"
+      "tags": "queries/tags.scm",
+      "folds": "queries/folds.scm",
+      "indents": "queries/indents.scm",
+      "injections": "queries/injections.scm"
     }
   ],
   "metadata": {
