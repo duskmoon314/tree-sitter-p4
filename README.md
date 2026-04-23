@@ -22,6 +22,21 @@ tree-sitter test
 tree-sitter parse example.p4
 ```
 
+## Editor Support
+
+### VS Code
+
+A VS Code extension is available at [`editors/vscode/`](editors/vscode/) providing semantic syntax highlighting, code folding, and smart selection. To build and install:
+
+```bash
+tree-sitter build --wasm
+cd editors/vscode
+pnpm install
+pnpm run build
+pnpm run package              # produces a .vsix file
+code --install-extension tree-sitter-p4-*.vsix
+```
+
 ## Bindings
 
 - **Rust**: `cargo test`
