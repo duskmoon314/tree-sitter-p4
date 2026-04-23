@@ -1,0 +1,83 @@
+==================
+Simple annotation
+==================
+
+@name
+const bit<8> X = 5;
+
+---
+
+(source_file
+  (constant_declaration
+    (annotations (annotation (name (nonTypeName (identifier)))))
+    (type_ref (base_type (integer_literal)))
+    (name (nonTypeName (identifier)))
+    (integer_literal)))
+
+==================
+Annotation with parenthesized body
+==================
+
+@name("value")
+const bit<8> X = 5;
+
+---
+
+(source_file
+  (constant_declaration
+    (annotations
+      (annotation
+        (name (nonTypeName (identifier)))
+        (annotation_body (annotation_token (string_literal)))))
+    (type_ref (base_type (integer_literal)))
+    (name (nonTypeName (identifier)))
+    (integer_literal)))
+
+==================
+Annotation with structured body
+==================
+
+@name[key = value]
+const bit<8> X = 5;
+
+---
+
+(source_file
+  (constant_declaration
+    (annotations
+      (annotation
+        (name (nonTypeName (identifier)))
+        (structured_annotation_body
+          (kv_list
+            (kv_pair
+              (name (nonTypeName))
+              (prefixedNonTypeName (nonTypeName (identifier))))))))
+    (type_ref (base_type (integer_literal)))
+    (name (nonTypeName (identifier)))
+    (integer_literal)))
+
+==================
+Multiple annotations
+==================
+
+@anno1
+@anno2("test")
+header my_header {
+    bit<8> field;
+}
+
+---
+
+(source_file
+  (type_declaration
+    (derived_type_declaration
+      (header_declaration
+        (annotations
+          (annotation (name (nonTypeName (identifier))))
+          (annotation
+            (name (nonTypeName (identifier)))
+            (annotation_body (annotation_token (string_literal)))))
+        (name (nonTypeName (identifier)))
+        (struct_field
+          (type_ref (base_type (integer_literal)))
+          (name (nonTypeName (identifier))))))))

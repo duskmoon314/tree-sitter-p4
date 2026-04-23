@@ -1,0 +1,100 @@
+==================
+Function declaration
+==================
+
+void my_function(bit<8> x) {
+    return;
+}
+
+---
+
+(source_file
+  (function_declaration
+    (function_prototype
+      (type_or_void)
+      (name (nonTypeName (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier)))))))
+    (block_statement
+      (return_statement))))
+
+==================
+Function with return type
+==================
+
+bit<8> add(bit<8> a, bit<8> b) {
+    return a + b;
+}
+
+---
+
+(source_file
+  (function_declaration
+    (function_prototype
+      (type_or_void
+        (type_ref (base_type (integer_literal))))
+      (name (nonTypeName (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier))))
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier)))))))
+    (block_statement
+      (return_statement
+        (prefixedNonTypeName (nonTypeName (identifier)))
+        (prefixedNonTypeName (nonTypeName (identifier)))))))
+
+==================
+Function with direction
+==================
+
+void copy(in bit<8> src, out bit<8> dst) {
+    dst = src;
+}
+
+---
+
+(source_file
+  (function_declaration
+    (function_prototype
+      (type_or_void)
+      (name (nonTypeName (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (direction)
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier))))
+          (parameter
+            (direction)
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier)))))))
+    (block_statement
+      (assignment_or_method_call_statement
+        (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+        (prefixedNonTypeName (nonTypeName (identifier)))))))
+
+==================
+Function prototype
+==================
+
+extern void external_func(bit<8> x);
+
+---
+
+(source_file
+  (extern_declaration
+    (function_prototype
+      (type_or_void)
+      (name (nonTypeName (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier)))))))))
