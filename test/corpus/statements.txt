@@ -16,28 +16,27 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration
-      (name
+    type_declaration: (control_type_declaration
+      name: (name
         (nonTypeName
           (identifier))))
-    (control_body
+    body: (control_body
       (block_statement
-        (conditional_statement
-          (block_statement
-            (assignment_or_method_call_statement
+        statements: (conditional_statement
+          consequence: (block_statement
+            statements: (assignment_or_method_call_statement
               (lvalue
                 (prefixedNonTypeName
                   (nonTypeName
                     (identifier))))
               (integer_literal)))
-          (block_statement
-            (assignment_or_method_call_statement
+          alternative: (block_statement
+            statements: (assignment_or_method_call_statement
               (lvalue
                 (prefixedNonTypeName
                   (nonTypeName
                     (identifier))))
               (integer_literal))))))))
-
 ==================
 Return statement
 ==================
@@ -50,10 +49,11 @@ action my_action() {
 
 (source_file
   (action_declaration
-    (name (nonTypeName (identifier)))
-    (block_statement
-      (return_statement))))
-
+    name: (name
+      (nonTypeName
+        (identifier)))
+    body: (block_statement
+      statements: (return_statement))))
 ==================
 Return with value
 ==================
@@ -66,10 +66,12 @@ action my_action() {
 
 (source_file
   (action_declaration
-    (name (nonTypeName (identifier)))
-    (block_statement
-      (return_statement (integer_literal)))))
-
+    name: (name
+      (nonTypeName
+        (identifier)))
+    body: (block_statement
+      statements: (return_statement
+        expression: (integer_literal)))))
 ==================
 Break statement
 ==================
@@ -86,23 +88,36 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration (name (nonTypeName (identifier))))
-    (control_body
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier))))
+    body: (control_body
       (block_statement
-        (for_statement
-          (type_ref (base_type (integer_literal)))
-          (name (nonTypeName (identifier)))
-          (integer_literal)
-          (prefixedNonTypeName (nonTypeName (identifier)))
-          (integer_literal)
-          (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
-          (integer_literal)
-          (block_statement
-            (conditional_statement
-              (prefixedNonTypeName (nonTypeName (identifier)))
-              (integer_literal)
-              (break_statement))))))))
-
+        statements: (for_statement
+          init: (type_ref
+            (base_type
+              (integer_literal)))
+          init: (name
+            (nonTypeName
+              (identifier)))
+          init: (integer_literal)
+          condition: (prefixedNonTypeName
+            (nonTypeName
+              (identifier)))
+          condition: (integer_literal)
+          update: (lvalue
+            (prefixedNonTypeName
+              (nonTypeName
+                (identifier))))
+          update: (integer_literal)
+          body: (block_statement
+            statements: (conditional_statement
+              condition: (prefixedNonTypeName
+                (nonTypeName
+                  (identifier)))
+              condition: (integer_literal)
+              consequence: (break_statement))))))))
 ==================
 Exit statement
 ==================
@@ -117,11 +132,13 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration (name (nonTypeName (identifier))))
-    (control_body
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier))))
+    body: (control_body
       (block_statement
-        (exit_statement)))))
-
+        statements: (exit_statement)))))
 ==================
 Method call statement
 ==================
@@ -136,19 +153,31 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration (name (nonTypeName (identifier))))
-    (control_body
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier))))
+    body: (control_body
       (block_statement
-        (assignment_or_method_call_statement
+        statements: (assignment_or_method_call_statement
           (lvalue
-            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
-            (member (name (nonTypeName (identifier)))))
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier)))))
           (argument_list
             (non_empty_arg_list
               (argument
-                (type_name (identifier))
-                (member (name (nonTypeName (identifier))))))))))))
-
+                value: (type_name
+                  (identifier))
+                member: (member
+                  name: (name
+                    (nonTypeName
+                      (identifier))))))))))))
 ==================
 Direct application
 ==================
@@ -163,21 +192,38 @@ control C(inout headers_t hdr) {
 
 (source_file
   (control_declaration
-    (control_type_declaration
-      (name (nonTypeName (identifier)))
-      (parameter_list
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier)))
+      parameters: (parameter_list
         (non_empty_parameter_list
           (parameter
-            (direction)
-            (type_ref (type_name (identifier)))
-            (name (nonTypeName (identifier)))))))
-    (control_body
+            direction: (direction)
+            type: (type_ref
+              (type_name
+                (identifier)))
+            name: (name
+              (nonTypeName
+                (identifier)))))))
+    body: (control_body
       (block_statement
-        (assignment_or_method_call_statement
+        statements: (assignment_or_method_call_statement
           (lvalue
-            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
-            (member (name (nonTypeName))))
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName))))
           (argument_list
             (non_empty_arg_list
-              (argument (prefixedNonTypeName (nonTypeName (identifier))))
-              (argument (prefixedNonTypeName (nonTypeName (identifier)))))))))))
+              (argument
+                value: (prefixedNonTypeName
+                  (nonTypeName
+                    (identifier))))
+              (argument
+                value: (prefixedNonTypeName
+                  (nonTypeName
+                    (identifier)))))))))))

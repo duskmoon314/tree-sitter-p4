@@ -2,6 +2,7 @@
 Simple parser
 ==================
 
+
 parser MyParser(packet_in pkt, out headers_t hdr) {
     state start {
         transition accept;
@@ -12,35 +13,22 @@ parser MyParser(packet_in pkt, out headers_t hdr) {
 
 (source_file
   (parser_declaration
-    (parser_type_declaration
-      (name
-        (nonTypeName
-          (identifier)))
-      (parameter_list
+    type_declaration: (parser_type_declaration
+      name: (name (nonTypeName (identifier)))
+      parameters: (parameter_list
         (non_empty_parameter_list
           (parameter
-            (type_ref
-              (type_name
-                (identifier)))
-            (name
-              (nonTypeName
-                (identifier))))
+            type: (type_ref (type_name (identifier)))
+            name: (name (nonTypeName (identifier))))
           (parameter
-            (direction)
-            (type_ref
-              (type_name
-                (identifier)))
-            (name
-              (nonTypeName
-                (identifier)))))))
-    (parser_state
-      (name
-        (nonTypeName
-          (identifier)))
-      (transition_statement
-        (name
-          (nonTypeName
-            (identifier)))))))
+            direction: (direction)
+            type: (type_ref (type_name (identifier)))
+            name: (name (nonTypeName (identifier)))))))
+    states: (parser_state
+      name: (name (nonTypeName (identifier)))
+      transition: (transition_statement
+        target: (name (nonTypeName (identifier)))))))
+
 
 ==================
 Parser with select
@@ -59,47 +47,47 @@ parser MyParser(packet_in pkt) {
 
 (source_file
   (parser_declaration
-    (parser_type_declaration
-      (name
+    type_declaration: (parser_type_declaration
+      name: (name
         (nonTypeName
           (identifier)))
-      (parameter_list
+      parameters: (parameter_list
         (non_empty_parameter_list
           (parameter
-            (type_ref
+            type: (type_ref
               (type_name
                 (identifier)))
-            (name
+            name: (name
               (nonTypeName
                 (identifier)))))))
-    (parser_state
-      (name
+    states: (parser_state
+      name: (name
         (nonTypeName
           (identifier)))
-      (transition_statement
-        (select_expression
-          (expression_list
+      transition: (transition_statement
+        target: (select_expression
+          expression: (expression_list
             (type_name
               (identifier))
-            (member
-              (name
+            member: (member
+              name: (name
                 (nonTypeName
                   (identifier))))
-            (real_type_argument_list
+            type_arguments: (real_type_argument_list
               (real_type_arg
                 (type_ref
                   (base_type
                     (integer_literal))))))
-          (select_case
-            (keyset_expression
+          cases: (select_case
+            keyset: (keyset_expression
               (simple_keyset_expression
                 (integer_literal)))
-            (name
+            state: (name
               (nonTypeName
                 (identifier))))
-          (select_case
-            (keyset_expression
+          cases: (select_case
+            keyset: (keyset_expression
               (simple_keyset_expression))
-            (name
+            state: (name
               (nonTypeName
                 (identifier)))))))))

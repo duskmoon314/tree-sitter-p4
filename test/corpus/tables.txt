@@ -21,30 +21,52 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration (name (nonTypeName (identifier))))
-    (control_local_declaration
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier))))
+    local_declarations: (control_local_declaration
       (table_declaration
-        (name (nonTypeName (identifier)))
-        (table_property
-          (key_element
-            (type_name (identifier))
-            (member (name (nonTypeName (identifier))))
-            (member (name (nonTypeName (identifier))))
-            (name (nonTypeName (identifier)))))
-        (table_property
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName (nonTypeName (identifier)))))
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName (nonTypeName (identifier))))))))
-    (control_body
+        name: (name
+          (nonTypeName
+            (identifier)))
+        properties: (table_property
+          key_elements: (key_element
+            expression: (type_name
+              (identifier))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier))))
+            match_kind: (name
+              (nonTypeName
+                (identifier)))))
+        properties: (table_property
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
+                (nonTypeName
+                  (identifier)))))
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))))))
+    body: (control_body
       (block_statement
-        (assignment_or_method_call_statement
+        statements: (assignment_or_method_call_statement
           (lvalue
-            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
-            (member (name (nonTypeName)))))))))
-
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName)))))))))
 ==================
 Table with default action
 ==================
@@ -69,33 +91,58 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration (name (nonTypeName (identifier))))
-    (control_local_declaration
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier))))
+    local_declarations: (control_local_declaration
       (table_declaration
-        (name (nonTypeName (identifier)))
-        (table_property
-          (key_element
-            (type_name (identifier))
-            (member (name (nonTypeName (identifier))))
-            (member (name (nonTypeName (identifier))))
-            (name (nonTypeName (identifier)))))
-        (table_property
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName (nonTypeName (identifier)))))
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName (nonTypeName (identifier))))))
-        (table_property
-          (nonTableKwName (identifier))
-          (prefixedNonTypeName (nonTypeName (identifier))))))
-    (control_body
+        name: (name
+          (nonTypeName
+            (identifier)))
+        properties: (table_property
+          key_elements: (key_element
+            expression: (type_name
+              (identifier))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier))))
+            match_kind: (name
+              (nonTypeName
+                (identifier)))))
+        properties: (table_property
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
+                (nonTypeName
+                  (identifier)))))
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))))
+        properties: (table_property
+          name: (nonTableKwName
+            (identifier))
+          value: (prefixedNonTypeName
+            (nonTypeName
+              (identifier))))))
+    body: (control_body
       (block_statement
-        (assignment_or_method_call_statement
+        statements: (assignment_or_method_call_statement
           (lvalue
-            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
-            (member (name (nonTypeName)))))))))
-
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName)))))))))
 ==================
 Table with LPM match
 ==================
@@ -119,26 +166,49 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration (name (nonTypeName (identifier))))
-    (control_local_declaration
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier))))
+    local_declarations: (control_local_declaration
       (table_declaration
-        (name (nonTypeName (identifier)))
-        (table_property
-          (key_element
-            (type_name (identifier))
-            (member (name (nonTypeName (identifier))))
-            (member (name (nonTypeName (identifier))))
-            (name (nonTypeName (identifier)))))
-        (table_property
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName (nonTypeName (identifier)))))
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName (nonTypeName (identifier))))))))
-    (control_body
+        name: (name
+          (nonTypeName
+            (identifier)))
+        properties: (table_property
+          key_elements: (key_element
+            expression: (type_name
+              (identifier))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier))))
+            match_kind: (name
+              (nonTypeName
+                (identifier)))))
+        properties: (table_property
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
+                (nonTypeName
+                  (identifier)))))
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))))))
+    body: (control_body
       (block_statement
-        (assignment_or_method_call_statement
+        statements: (assignment_or_method_call_statement
           (lvalue
-            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
-            (member (name (nonTypeName)))))))))
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName)))))))))

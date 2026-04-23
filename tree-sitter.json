@@ -10,7 +10,10 @@
         "p4"
       ],
       "injection-regex": "^p4$",
-      "class-name": "TreeSitterP4"
+      "class-name": "TreeSitterP4",
+      "highlights": "queries/highlights.scm",
+      "locals": "queries/locals.scm",
+      "tags": "queries/tags.scm"
     }
   ],
   "metadata": {

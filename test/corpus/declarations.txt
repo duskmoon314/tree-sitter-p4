@@ -2,15 +2,17 @@
 Constant declaration
 ==================
 
+
 const bit<8> X = 5;
 
 ---
 
 (source_file
   (constant_declaration
-    (type_ref (base_type (integer_literal)))
-    (name (nonTypeName (identifier)))
-    (integer_literal)))
+    type: (type_ref (base_type (integer_literal)))
+    name: (name (nonTypeName (identifier)))
+    value: (integer_literal)))
+
 
 ==================
 Constant declaration with hex value
@@ -22,13 +24,17 @@ const bit<16> ETHERTYPE_IPV4 = 16w0x0800;
 
 (source_file
   (constant_declaration
-    (type_ref (base_type (integer_literal)))
-    (name (nonTypeName (identifier)))
-    (integer_literal)))
-
+    type: (type_ref
+      (base_type
+        (integer_literal)))
+    name: (name
+      (nonTypeName
+        (identifier)))
+    value: (integer_literal)))
 ==================
 Typedef declaration
 ==================
+
 
 typedef bit<48> mac_addr_t;
 
@@ -37,8 +43,9 @@ typedef bit<48> mac_addr_t;
 (source_file
   (type_declaration
     (typedef_declaration
-      (type_ref (base_type (integer_literal)))
-      (name (nonTypeName (identifier))))))
+      type: (type_ref (base_type (integer_literal)))
+      name: (name (nonTypeName (identifier))))))
+
 
 ==================
 Type declaration (distinct type)
@@ -51,12 +58,16 @@ type bit<9> PortId_t;
 (source_file
   (type_declaration
     (typedef_declaration
-      (type_ref (base_type (integer_literal)))
-      (name (nonTypeName (identifier))))))
-
+      type: (type_ref
+        (base_type
+          (integer_literal)))
+      name: (name
+        (nonTypeName
+          (identifier))))))
 ==================
 Header declaration
 ==================
+
 
 header ethernet_h {
     bit<48> dst_addr;
@@ -70,16 +81,17 @@ header ethernet_h {
   (type_declaration
     (derived_type_declaration
       (header_declaration
-        (name (nonTypeName (identifier)))
-        (struct_field
-          (type_ref (base_type (integer_literal)))
-          (name (nonTypeName (identifier))))
-        (struct_field
-          (type_ref (base_type (integer_literal)))
-          (name (nonTypeName (identifier))))
-        (struct_field
-          (type_ref (base_type (integer_literal)))
-          (name (nonTypeName (identifier))))))))
+        name: (name (nonTypeName (identifier)))
+        fields: (struct_field
+          type: (type_ref (base_type (integer_literal)))
+          name: (name (nonTypeName (identifier))))
+        fields: (struct_field
+          type: (type_ref (base_type (integer_literal)))
+          name: (name (nonTypeName (identifier))))
+        fields: (struct_field
+          type: (type_ref (base_type (integer_literal)))
+          name: (name (nonTypeName (identifier))))))))
+
 
 ==================
 Struct declaration
@@ -95,14 +107,20 @@ struct headers_t {
   (type_declaration
     (derived_type_declaration
       (struct_declaration
-        (name (nonTypeName (identifier)))
-        (struct_field
-          (type_ref (type_name (identifier)))
-          (name (nonTypeName (identifier))))))))
-
+        name: (name
+          (nonTypeName
+            (identifier)))
+        fields: (struct_field
+          type: (type_ref
+            (type_name
+              (identifier)))
+          name: (name
+            (nonTypeName
+              (identifier))))))))
 ==================
 Enum declaration
 ==================
+
 
 enum MeterType_t {
     PACKETS,
@@ -115,10 +133,11 @@ enum MeterType_t {
   (type_declaration
     (derived_type_declaration
       (enum_declaration
-        (name (nonTypeName (identifier)))
-        (identifier_list
+        name: (name (nonTypeName (identifier)))
+        members: (identifier_list
           (name (nonTypeName (identifier)))
           (name (nonTypeName (identifier))))))))
+
 
 ==================
 Error declaration
@@ -133,13 +152,17 @@ error {
 
 (source_file
   (error_declaration
-    (identifier_list
-      (name (nonTypeName (identifier)))
-      (name (nonTypeName (identifier))))))
-
+    members: (identifier_list
+      (name
+        (nonTypeName
+          (identifier)))
+      (name
+        (nonTypeName
+          (identifier))))))
 ==================
 Match kind declaration
 ==================
+
 
 match_kind {
     exact,
@@ -151,7 +174,8 @@ match_kind {
 
 (source_file
   (match_kind_declaration
-    (identifier_list
+    members: (identifier_list
       (name (nonTypeName (identifier)))
       (name (nonTypeName (identifier)))
       (name (nonTypeName (identifier))))))
+

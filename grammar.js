@@ -62,7 +62,7 @@ export default grammar({
     nonTableKwName: ($) =>
       choice($.identifier, "apply", "state", "type", "priority"),
 
-    member: ($) => $.name,
+    member: ($) => field("name", $.name),
 
     prefixedNonTypeName: ($) =>
       choice($.nonTypeName, seq(".", $.nonTypeName)),
@@ -185,58 +185,63 @@ export default grammar({
 
     header_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "header",
-        $.name,
-        optional($.type_parameters),
+        field("name", $.name),
+        field("type_parameters", optional($.type_parameters)),
         "{",
-        repeat($.struct_field),
+        field("fields", repeat($.struct_field)),
         "}"
       ),
 
     struct_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "struct",
-        $.name,
-        optional($.type_parameters),
+        field("name", $.name),
+        field("type_parameters", optional($.type_parameters)),
         "{",
-        repeat($.struct_field),
+        field("fields", repeat($.struct_field)),
         "}"
       ),
 
     header_union_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "header_union",
-        $.name,
-        optional($.type_parameters),
+        field("name", $.name),
+        field("type_parameters", optional($.type_parameters)),
         "{",
-        repeat($.struct_field),
+        field("fields", repeat($.struct_field)),
         "}"
       ),
 
     struct_field: ($) =>
-      seq(optional($.annotations), $.type_ref, $.name, ";"),
+      seq(
+        field("annotations", optional($.annotations)),
+        field("type", $.type_ref),
+        field("name", $.name),
+        ";"
+      ),
 
     enum_declaration: ($) =>
       choice(
         seq(
-          optional($.annotations),
+          field("annotations", optional($.annotations)),
           "enum",
-          $.name,
+          field("name", $.name),
           "{",
-          $.identifier_list,
+          field("members", $.identifier_list),
           optional(","),
           "}"
         ),
         seq(
-          optional($.annotations),
+          field("annotations", optional($.annotations)),
           "enum",
-          $.type_ref,
-          $.name,
+          field("type", $.type_ref),
+          field("name", $.name),
           "{",
-          $.specified_identifier_list,
+          field("members", $.specified_identifier_list),
           optional(","),
           "}"
         )
@@ -248,25 +253,35 @@ export default grammar({
         repeat(seq(",", $.specified_identifier))
       ),
 
-    specified_identifier: ($) => seq($.name, "=", $._initializer),
+    specified_identifier: ($) => seq(field("name", $.name), "=", field("value", $._initializer)),
 
-    error_declaration: ($) => seq("error", "{", $.identifier_list, "}"),
+    error_declaration: ($) => seq("error", "{", field("members", $.identifier_list), "}"),
 
     match_kind_declaration: ($) =>
-      seq("match_kind", "{", $.identifier_list, optional(","), "}"),
+      seq("match_kind", "{", field("members", $.identifier_list), optional(","), "}"),
 
     identifier_list: ($) => seq($.name, repeat(seq(",", $.name))),
 
     typedef_declaration: ($) =>
       choice(
-        seq(optional($.annotations), "typedef", $.type_ref, $.name),
         seq(
-          optional($.annotations),
+          field("annotations", optional($.annotations)),
           "typedef",
-          $.derived_type_declaration,
-          $.name
+          field("type", $.type_ref),
+          field("name", $.name)
         ),
-        seq(optional($.annotations), "type", $.type_ref, $.name)
+        seq(
+          field("annotations", optional($.annotations)),
+          "typedef",
+          field("type", $.derived_type_declaration),
+          field("name", $.name)
+        ),
+        seq(
+          field("annotations", optional($.annotations)),
+          "type",
+          field("type", $.type_ref),
+          field("name", $.name)
+        )
       ),
 
     // ==================== Annotations ====================
@@ -275,9 +290,9 @@ export default grammar({
 
     annotation: ($) =>
       choice(
-        seq("@", $.name),
-        seq("@", $.name, "(", optional($.annotation_body), ")"),
-        seq("@", $.name, "[", optional($.structured_annotation_body), "]")
+        seq("@", field("name", $.name)),
+        seq("@", field("name", $.name), "(", field("body", optional($.annotation_body)), ")"),
+        seq("@", field("name", $.name), "[", field("body", optional($.structured_annotation_body)), "]")
       ),
 
     annotation_body: ($) =>
@@ -383,7 +398,7 @@ export default grammar({
 
     kv_list: ($) => seq($.kv_pair, repeat(seq(",", $.kv_pair))),
 
-    kv_pair: ($) => seq($.name, "=", $._expression),
+    kv_pair: ($) => seq(field("key", $.name), "=", field("value", $._expression)),
 
     // ==================== Parameters ====================
 
@@ -394,11 +409,11 @@ export default grammar({
 
     parameter: ($) =>
       seq(
-        optional($.annotations),
-        optional($.direction),
-        $.type_ref,
-        $.name,
-        optional(seq("=", $._expression))
+        field("annotations", optional($.annotations)),
+        field("direction", optional($.direction)),
+        field("type", $.type_ref),
+        field("name", $.name),
+        field("default_value", optional(seq("=", $._expression)))
       ),
 
     direction: ($) => choice("in", "out", "inout"),
@@ -407,12 +422,12 @@ export default grammar({
 
     package_type_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "package",
-        $.name,
-        optional($.type_parameters),
+        field("name", $.name),
+        field("type_parameters", optional($.type_parameters)),
         "(",
-        optional($.parameter_list),
+        field("parameters", optional($.parameter_list)),
         ")"
       ),
 
@@ -420,13 +435,13 @@ export default grammar({
 
     instantiation: ($) =>
       seq(
-        optional($.annotations),
-        $.type_ref,
+        field("annotations", optional($.annotations)),
+        field("type", $.type_ref),
         "(",
-        optional($.argument_list),
+        field("arguments", optional($.argument_list)),
         ")",
-        $.name,
-        optional(seq("=", $.obj_initializer)),
+        field("name", $.name),
+        field("initializer", optional(seq("=", $.obj_initializer))),
         ";"
       ),
 
@@ -441,22 +456,22 @@ export default grammar({
 
     parser_declaration: ($) =>
       seq(
-        $.parser_type_declaration,
-        optional($.constructor_parameters),
+        field("type_declaration", $.parser_type_declaration),
+        field("constructor_parameters", optional($.constructor_parameters)),
         "{",
-        repeat($.parser_local_element),
-        repeat($.parser_state),
+        field("local_elements", repeat($.parser_local_element)),
+        field("states", repeat($.parser_state)),
         "}"
       ),
 
     parser_type_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "parser",
-        $.name,
-        optional($.type_parameters),
+        field("name", $.name),
+        field("type_parameters", optional($.type_parameters)),
         "(",
-        optional($.parameter_list),
+        field("parameters", optional($.parameter_list)),
         ")"
       ),
 
@@ -473,12 +488,12 @@ export default grammar({
 
     parser_state: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "state",
-        $.name,
+        field("name", $.name),
         "{",
-        repeat($.parser_statement),
-        optional($.transition_statement),
+        field("statements", repeat($.parser_statement)),
+        field("transition", optional($.transition_statement)),
         "}"
       ),
 
@@ -496,7 +511,7 @@ export default grammar({
     parser_block_statement: ($) =>
       seq(optional($.annotations), "{", repeat($.parser_statement), "}"),
 
-    transition_statement: ($) => seq("transition", $._state_expression),
+    transition_statement: ($) => seq("transition", field("target", $._state_expression)),
 
     _state_expression: ($) => choice(seq($.name, ";"), $.select_expression),
 
@@ -504,14 +519,14 @@ export default grammar({
       seq(
         "select",
         "(",
-        $.expression_list,
+        field("expression", $.expression_list),
         ")",
         "{",
-        repeat($.select_case),
+        field("cases", repeat($.select_case)),
         "}"
       ),
 
-    select_case: ($) => seq($.keyset_expression, ":", $.name, ";"),
+    select_case: ($) => seq(field("keyset", $.keyset_expression), ":", field("state", $.name), ";"),
 
     keyset_expression: ($) =>
       choice($.tuple_keyset_expression, $.simple_keyset_expression),
@@ -553,15 +568,15 @@ export default grammar({
 
     value_set_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "value_set",
         "<",
-        choice($.base_type, $.tuple_type, $.type_name),
+        field("type", choice($.base_type, $.tuple_type, $.type_name)),
         ">",
         "(",
-        $._expression,
+        field("size", $._expression),
         ")",
-        $.name,
+        field("name", $.name),
         ";"
       ),
 
@@ -569,23 +584,23 @@ export default grammar({
 
     control_declaration: ($) =>
       seq(
-        $.control_type_declaration,
-        optional($.constructor_parameters),
+        field("type_declaration", $.control_type_declaration),
+        field("constructor_parameters", optional($.constructor_parameters)),
         "{",
-        repeat($.control_local_declaration),
+        field("local_declarations", repeat($.control_local_declaration)),
         "apply",
-        $.control_body,
+        field("body", $.control_body),
         "}"
       ),
 
     control_type_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "control",
-        $.name,
-        optional($.type_parameters),
+        field("name", $.name),
+        field("type_parameters", optional($.type_parameters)),
         "(",
-        optional($.parameter_list),
+        field("parameters", optional($.parameter_list)),
         ")"
       ),
 
@@ -605,46 +620,50 @@ export default grammar({
     extern_declaration: ($) =>
       choice(
         seq(
-          optional($.annotations),
+          field("annotations", optional($.annotations)),
           "extern",
-          $.nonTypeName,
-          optional($.type_parameters),
+          field("name", $.nonTypeName),
+          field("type_parameters", optional($.type_parameters)),
           "{",
-          repeat($.method_prototype),
+          field("methods", repeat($.method_prototype)),
           "}"
         ),
         seq(
-          optional($.annotations),
+          field("annotations", optional($.annotations)),
           "extern",
-          $.function_prototype,
+          field("function_prototype", $.function_prototype),
           ";"
         )
       ),
 
     function_prototype: ($) =>
       seq(
-        $.type_or_void,
-        $.name,
-        optional($.type_parameters),
+        field("return_type", $.type_or_void),
+        field("name", $.name),
+        field("type_parameters", optional($.type_parameters)),
         "(",
-        optional($.parameter_list),
+        field("parameters", optional($.parameter_list)),
         ")"
       ),
 
     method_prototype: ($) =>
       choice(
-        seq(optional($.annotations), $.function_prototype, ";"),
         seq(
-          optional($.annotations),
-          "abstract",
-          $.function_prototype,
+          field("annotations", optional($.annotations)),
+          field("function_prototype", $.function_prototype),
           ";"
         ),
         seq(
-          optional($.annotations),
-          $.identifier,
+          field("annotations", optional($.annotations)),
+          "abstract",
+          field("function_prototype", $.function_prototype),
+          ";"
+        ),
+        seq(
+          field("annotations", optional($.annotations)),
+          field("name", $.identifier),
           "(",
-          optional($.parameter_list),
+          field("parameters", optional($.parameter_list)),
           ")",
           ";"
         )
@@ -654,77 +673,92 @@ export default grammar({
 
     table_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "table",
-        $.name,
+        field("name", $.name),
         "{",
-        repeat1($.table_property),
+        field("properties", repeat1($.table_property)),
         "}"
       ),
 
     table_property: ($) =>
       choice(
-        seq("key", "=", "{", repeat($.key_element), "}"),
-        seq("actions", "=", "{", repeat($.action_ref_with_annotations), "}"),
+        seq("key", "=", "{", field("key_elements", repeat($.key_element)), "}"),
+        seq("actions", "=", "{", field("action_refs", repeat($.action_ref_with_annotations)), "}"),
         seq(
-          optional($.annotations),
+          field("annotations", optional($.annotations)),
           optional("const"),
           "entries",
           "=",
           "{",
-          repeat($.entry),
+          field("entries", repeat($.entry)),
           "}"
         ),
         seq(
-          optional($.annotations),
+          field("annotations", optional($.annotations)),
           optional("const"),
-          $.nonTableKwName,
+          field("name", $.nonTableKwName),
           "=",
-          $._initializer,
+          field("value", $._initializer),
           ";"
         )
       ),
 
     key_element: ($) =>
-      seq($._expression, ":", $.name, optional($.annotations), ";"),
+      seq(
+        field("expression", $._expression),
+        ":",
+        field("match_kind", $.name),
+        field("annotations", optional($.annotations)),
+        ";"
+      ),
 
     action_ref_with_annotations: ($) =>
-      seq(optional($.annotations), $.action_ref, ";"),
+      seq(
+        field("annotations", optional($.annotations)),
+        field("action_ref", $.action_ref),
+        ";"
+      ),
 
     action_ref: ($) =>
       choice(
-        $.prefixedNonTypeName,
-        seq($.prefixedNonTypeName, "(", optional($.argument_list), ")")
+        field("name", $.prefixedNonTypeName),
+        seq(
+          field("name", $.prefixedNonTypeName),
+          "(",
+          field("arguments", optional($.argument_list)),
+          ")"
+        )
       ),
 
     entry: ($) =>
       seq(
         optional("const"),
-        optional($.entry_priority),
-        $.keyset_expression,
+        field("priority", optional($.entry_priority)),
+        field("keyset", $.keyset_expression),
         ":",
-        $.action_ref,
-        optional($.annotations),
+        field("action", $.action_ref),
+        field("annotations", optional($.annotations)),
         ";"
       ),
 
     entry_priority: ($) =>
       choice(
-        seq("priority", "=", $.integer_literal, ":"),
-        seq("priority", "=", "(", $._expression, ")", ":")
+        seq("priority", "=", field("value", $.integer_literal), ":"),
+        seq("priority", "=", "(", field("value", $._expression), ")", ":")
       ),
 
     // ==================== Action ====================
 
     action_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "action",
-        $.name,
+        field("name", $.name),
         "(",
-        optional($.parameter_list),
+        field("parameters", optional($.parameter_list)),
         ")",
-        $.block_statement
+        field("body", $.block_statement)
       ),
 
     // ==================== Variables & Constants ====================
@@ -732,20 +766,29 @@ export default grammar({
     variable_declaration: ($) =>
       seq(
         choice(
-          seq($.annotations, $.type_ref, $.name, optional($._opt_initializer)),
-          seq($.type_ref, $.name, optional($._opt_initializer))
+          seq(
+            field("annotations", $.annotations),
+            field("type", $.type_ref),
+            field("name", $.name),
+            field("initializer", optional($._opt_initializer))
+          ),
+          seq(
+            field("type", $.type_ref),
+            field("name", $.name),
+            field("initializer", optional($._opt_initializer))
+          )
         ),
         ";"
       ),
 
     constant_declaration: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "const",
-        $.type_ref,
-        $.name,
+        field("type", $.type_ref),
+        field("name", $.name),
         "=",
-        $._initializer,
+        field("value", $._initializer),
         ";"
       ),
 
@@ -757,9 +800,9 @@ export default grammar({
 
     function_declaration: ($) =>
       seq(
-        optional($.annotations),
-        $.function_prototype,
-        $.block_statement
+        field("annotations", optional($.annotations)),
+        field("prototype", $.function_prototype),
+        field("body", $.block_statement)
       ),
 
     // ==================== Arguments ====================
@@ -771,10 +814,10 @@ export default grammar({
 
     argument: ($) =>
       choice(
-        $._expression,
-        seq($.name, "=", $._expression),
+        field("value", $._expression),
+        seq(field("name", $.name), "=", field("value", $._expression)),
         "_",
-        seq($.name, "=", "_")
+        seq(field("name", $.name), "=", "_")
       ),
 
     expression_list: ($) =>
@@ -786,7 +829,7 @@ export default grammar({
       choice(
         $.prefixedNonTypeName,
         "this",
-        seq($.lvalue, ".", $.member),
+        seq($.lvalue, ".", field("member", $.member)),
         seq($.lvalue, "[", $._expression, "]"),
         seq(
           $.lvalue,
@@ -859,11 +902,11 @@ export default grammar({
         prec.right(12, seq("+", $._expression)),
 
         // Enum/error member access
-        seq($.type_name, ".", $.member),
-        seq("error", ".", $.member),
+        seq($.type_name, ".", field("member", $.member)),
+        seq("error", ".", field("member", $.member)),
 
         // Member access (postfix, highest precedence)
-        prec.left(13, seq($._expression, ".", $.member)),
+        prec.left(13, seq($._expression, ".", field("member", $.member))),
 
         // Multiplicative (precedence 10)
         prec.left(10, seq($._expression, "*", $._expression)),
@@ -924,10 +967,10 @@ export default grammar({
           seq(
             $._expression,
             "<",
-            $.real_type_argument_list,
+            field("type_arguments", $.real_type_argument_list),
             ">",
             "(",
-            optional($.argument_list),
+            field("arguments", optional($.argument_list)),
             ")"
           )
         ),
@@ -935,14 +978,24 @@ export default grammar({
         // Function/method call (postfix)
         prec.left(
           13,
-          seq($._expression, "(", optional($.argument_list), ")")
+          seq(
+            $._expression,
+            "(",
+            field("arguments", optional($.argument_list)),
+            ")"
+          )
         ),
 
         // Constructor call
-        seq($.named_type, "(", optional($.argument_list), ")"),
+        seq(
+          field("type", $.named_type),
+          "(",
+          field("arguments", optional($.argument_list)),
+          ")"
+        ),
 
         // Cast
-        seq("(", $.type_ref, ")", $._expression)
+        seq("(", field("type", $.type_ref), ")", field("expression", $._expression))
       ),
 
     // Non-brace expression (for switch labels)
@@ -983,9 +1036,9 @@ export default grammar({
         prec.right(12, seq("~", $._expression)),
         prec.right(12, seq("-", $._expression)),
         prec.right(12, seq("+", $._expression)),
-        seq($.type_name, ".", $.member),
-        seq("error", ".", $.member),
-        prec.left(13, seq($.nonBraceExpression, ".", $.member)),
+        seq($.type_name, ".", field("member", $.member)),
+        seq("error", ".", field("member", $.member)),
+        prec.left(13, seq($.nonBraceExpression, ".", field("member", $.member))),
         prec.left(10, seq($.nonBraceExpression, "*", $._expression)),
         prec.left(10, seq($.nonBraceExpression, "/", $._expression)),
         prec.left(10, seq($.nonBraceExpression, "%", $._expression)),
@@ -1022,19 +1075,34 @@ export default grammar({
           seq(
             $.nonBraceExpression,
             "<",
-            $.real_type_argument_list,
+            field("type_arguments", $.real_type_argument_list),
             ">",
             "(",
-            optional($.argument_list),
+            field("arguments", optional($.argument_list)),
             ")"
           )
         ),
         prec.left(
           13,
-          seq($.nonBraceExpression, "(", optional($.argument_list), ")")
+          seq(
+            $.nonBraceExpression,
+            "(",
+            field("arguments", optional($.argument_list)),
+            ")"
+          )
         ),
-        seq($.named_type, "(", optional($.argument_list), ")"),
-        seq("(", $.type_ref, ")", $._expression)
+        seq(
+          field("type", $.named_type),
+          "(",
+          field("arguments", optional($.argument_list)),
+          ")"
+        ),
+        seq(
+          "(",
+          field("type", $.type_ref),
+          ")",
+          field("expression", $._expression)
+        )
       ),
 
     // ==================== Statements ====================
@@ -1089,20 +1157,28 @@ export default grammar({
     exit_statement: ($) => seq("exit", ";"),
 
     return_statement: ($) =>
-      choice(seq("return", ";"), seq("return", $._expression, ";")),
+      choice(seq("return", ";"), seq("return", field("expression", $._expression), ";")),
 
     conditional_statement: ($) =>
       choice(
-        prec.right(seq("if", "(", $._expression, ")", $._statement)),
         prec.right(
           seq(
             "if",
             "(",
-            $._expression,
+            field("condition", $._expression),
             ")",
-            $._statement,
+            field("consequence", $._statement)
+          )
+        ),
+        prec.right(
+          seq(
+            "if",
+            "(",
+            field("condition", $._expression),
+            ")",
+            field("consequence", $._statement),
             "else",
-            $._statement
+            field("alternative", $._statement)
           )
         )
       ),
@@ -1113,20 +1189,33 @@ export default grammar({
 
     direct_application: ($) =>
       choice(
-        seq($.type_name, ".", "apply", "(", optional($.argument_list), ")", ";"),
         seq(
-          $.specialized_type,
+          field("type", $.type_name),
           ".",
           "apply",
           "(",
-          optional($.argument_list),
+          field("arguments", optional($.argument_list)),
+          ")",
+          ";"
+        ),
+        seq(
+          field("type", $.specialized_type),
+          ".",
+          "apply",
+          "(",
+          field("arguments", optional($.argument_list)),
           ")",
           ";"
         )
       ),
 
     block_statement: ($) =>
-      seq(optional($.annotations), "{", repeat($._statement_or_declaration), "}"),
+      seq(
+        field("annotations", optional($.annotations)),
+        "{",
+        field("statements", repeat($._statement_or_declaration)),
+        "}"
+      ),
 
     _statement_or_declaration: ($) =>
       choice($.variable_declaration, $.constant_declaration, $._statement),
@@ -1135,40 +1224,46 @@ export default grammar({
       seq(
         "switch",
         "(",
-        $._expression,
+        field("expression", $._expression),
         ")",
         "{",
-        repeat($.switch_case),
+        field("cases", repeat($.switch_case)),
         "}"
       ),
 
     switch_case: ($) =>
       choice(
-        seq($.switch_label, ":", $.block_statement),
-        seq($.switch_label, ":")
+        seq(field("label", $.switch_label), ":", field("body", $.block_statement)),
+        seq(field("label", $.switch_label), ":")
       ),
 
     switch_label: ($) => choice("default", $.nonBraceExpression),
 
     for_statement: ($) =>
       seq(
-        optional($.annotations),
+        field("annotations", optional($.annotations)),
         "for",
         "(",
         choice(
           // C-style for
           seq(
-            optional($._for_init_statements),
+            field("init", optional($._for_init_statements)),
             ";",
-            $._expression,
+            field("condition", $._expression),
             ";",
-            optional($._for_update_statements)
+            field("update", optional($._for_update_statements))
           ),
           // For-in
-          seq(optional($.annotations), $.type_ref, $.name, "in", $._for_collection_expr)
+          seq(
+            field("annotations", optional($.annotations)),
+            field("type", $.type_ref),
+            field("name", $.name),
+            "in",
+            field("collection", $._for_collection_expr)
+          )
         ),
         ")",
-        $._statement
+        field("body", $._statement)
       ),
 
     _for_init_statements: ($) =>

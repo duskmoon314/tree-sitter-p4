@@ -12,46 +12,45 @@ const bit<8> E = 8w0b1010;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal))
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal))
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal))
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal))
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)))
-
+    value: (integer_literal)))
 ==================
 Boolean literals
 ==================
@@ -63,18 +62,17 @@ const bool Y = false;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier))))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))))
-
 ==================
 String literal
 ==================
@@ -85,13 +83,12 @@ const string S = "hello";
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (string_literal)))
-
+    value: (string_literal)))
 ==================
 Arithmetic expressions
 ==================
@@ -106,51 +103,50 @@ const bit<8> E = 7 % 3;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal)))
-
+    value: (integer_literal)
+    value: (integer_literal)))
 ==================
 Bitwise expressions
 ==================
@@ -166,59 +162,58 @@ const bit<8> F = 0x80 >> 1;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal))
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal)))
-
+    value: (integer_literal)
+    value: (integer_literal)))
 ==================
 Comparison expressions
 ==================
@@ -234,54 +229,53 @@ const bool F = 1 >= 2;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal))
+    value: (integer_literal)
+    value: (integer_literal))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal)))
-
+    value: (integer_literal)
+    value: (integer_literal)))
 ==================
 Logical expressions
 ==================
@@ -294,24 +288,23 @@ const bool C = !true;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier))))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier))))
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))))
-
 ==================
 Ternary expression
 ==================
@@ -322,15 +315,14 @@ const bit<8> X = true ? 1 : 2;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (integer_literal)
-    (integer_literal)))
-
+    value: (integer_literal)
+    value: (integer_literal)))
 ==================
 Member access
 ==================
@@ -341,23 +333,22 @@ const bit<48> X = hdr.ethernet.dst_addr;
 
 (source_file
   (constant_declaration
-    (type_ref
+    type: (type_ref
       (base_type
         (integer_literal)))
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (type_name
+    value: (type_name
       (identifier))
-    (member
-      (name
+    member: (member
+      name: (name
         (nonTypeName
           (identifier))))
-    (member
-      (name
+    member: (member
+      name: (name
         (nonTypeName
           (identifier))))))
-
 ==================
 Function call
 ==================
@@ -370,14 +361,19 @@ action do_something() {
 
 (source_file
   (action_declaration
-    (name (nonTypeName (identifier)))
-    (block_statement
-      (assignment_or_method_call_statement
-        (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+    name: (name
+      (nonTypeName
+        (identifier)))
+    body: (block_statement
+      statements: (assignment_or_method_call_statement
+        (lvalue
+          (prefixedNonTypeName
+            (nonTypeName
+              (identifier))))
         (argument_list
           (non_empty_arg_list
-            (argument (integer_literal))))))))
-
+            (argument
+              value: (integer_literal))))))))
 ==================
 Cast expression
 ==================
@@ -388,13 +384,25 @@ const bit<16> X = (bit<16>) hdr.ethernet.ether_type;
 
 (source_file
   (constant_declaration
-    (type_ref (base_type (integer_literal)))
-    (name (nonTypeName (identifier)))
-    (type_ref (base_type (integer_literal)))
-    (type_name (identifier))
-    (member (name (nonTypeName (identifier))))
-    (member (name (nonTypeName (identifier))))))
-
+    type: (type_ref
+      (base_type
+        (integer_literal)))
+    name: (name
+      (nonTypeName
+        (identifier)))
+    type: (type_ref
+      (base_type
+        (integer_literal)))
+    expression: (type_name
+      (identifier))
+    member: (member
+      name: (name
+        (nonTypeName
+          (identifier))))
+    member: (member
+      name: (name
+        (nonTypeName
+          (identifier))))))
 ==================
 Struct literal
 ==================
@@ -405,9 +413,25 @@ const ethernet_h ETH = { dst_addr = 0, src_addr = 0, ether_type = 0x0800 };
 
 (source_file
   (constant_declaration
-    (type_ref (type_name (identifier)))
-    (name (nonTypeName (identifier)))
-    (kv_list
-      (kv_pair (name (nonTypeName (identifier))) (integer_literal))
-      (kv_pair (name (nonTypeName (identifier))) (integer_literal))
-      (kv_pair (name (nonTypeName (identifier))) (integer_literal)))))
+    type: (type_ref
+      (type_name
+        (identifier)))
+    name: (name
+      (nonTypeName
+        (identifier)))
+    value: (kv_list
+      (kv_pair
+        key: (name
+          (nonTypeName
+            (identifier)))
+        value: (integer_literal))
+      (kv_pair
+        key: (name
+          (nonTypeName
+            (identifier)))
+        value: (integer_literal))
+      (kv_pair
+        key: (name
+          (nonTypeName
+            (identifier)))
+        value: (integer_literal)))))

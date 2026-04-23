@@ -14,14 +14,39 @@ package SimpleSwitch(
 (source_file
   (type_declaration
     (package_type_declaration
-      (name (nonTypeName (identifier)))
-      (parameter_list
+      name: (name
+        (nonTypeName
+          (identifier)))
+      parameters: (parameter_list
         (non_empty_parameter_list
-          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier))))
-          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier))))
-          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier))))
-          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier)))))))))
-
+          (parameter
+            type: (type_ref
+              (type_name
+                (identifier)))
+            name: (name
+              (nonTypeName
+                (identifier))))
+          (parameter
+            type: (type_ref
+              (type_name
+                (identifier)))
+            name: (name
+              (nonTypeName
+                (identifier))))
+          (parameter
+            type: (type_ref
+              (type_name
+                (identifier)))
+            name: (name
+              (nonTypeName
+                (identifier))))
+          (parameter
+            type: (type_ref
+              (type_name
+                (identifier)))
+            name: (name
+              (nonTypeName
+                (identifier)))))))))
 ==================
 Instantiation
 ==================
@@ -37,21 +62,34 @@ control C() {
 
 (source_file
   (control_declaration
-    (control_type_declaration (name (nonTypeName (identifier))))
-    (control_local_declaration
+    type_declaration: (control_type_declaration
+      name: (name
+        (nonTypeName
+          (identifier))))
+    local_declarations: (control_local_declaration
       (instantiation
-        (type_ref (type_name (identifier)))
-        (argument_list
+        type: (type_ref
+          (type_name
+            (identifier)))
+        arguments: (argument_list
           (non_empty_arg_list
-            (argument (integer_literal))))
-        (name (nonTypeName (identifier)))))
-    (control_body
+            (argument
+              value: (integer_literal))))
+        name: (name
+          (nonTypeName
+            (identifier)))))
+    body: (control_body
       (block_statement
-        (assignment_or_method_call_statement
+        statements: (assignment_or_method_call_statement
           (lvalue
-            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
-            (member (name (nonTypeName (identifier))))))))))
-
+            (lvalue
+              (prefixedNonTypeName
+                (nonTypeName
+                  (identifier))))
+            member: (member
+              name: (name
+                (nonTypeName
+                  (identifier))))))))))
 ==================
 Package instantiation
 ==================
@@ -67,11 +105,27 @@ SimpleSwitch(
 
 (source_file
   (instantiation
-    (type_ref (type_name (identifier)))
-    (argument_list
+    type: (type_ref
+      (type_name
+        (identifier)))
+    arguments: (argument_list
       (non_empty_arg_list
-        (argument (named_type (type_name (identifier))))
-        (argument (named_type (type_name (identifier))))
-        (argument (named_type (type_name (identifier))))
-        (argument (named_type (type_name (identifier))))))
-    (name (nonTypeName (identifier)))))
+        (argument
+          type: (named_type
+            (type_name
+              (identifier))))
+        (argument
+          type: (named_type
+            (type_name
+              (identifier))))
+        (argument
+          type: (named_type
+            (type_name
+              (identifier))))
+        (argument
+          type: (named_type
+            (type_name
+              (identifier))))))
+    name: (name
+      (nonTypeName
+        (identifier)))))

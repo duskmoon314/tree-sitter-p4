@@ -2,6 +2,7 @@
 Simple extern
 ==================
 
+
 extern Counter {
     Counter(bit<32> size);
     void count();
@@ -11,18 +12,19 @@ extern Counter {
 
 (source_file
   (extern_declaration
-    (nonTypeName (identifier))
-    (method_prototype
-      (identifier)
-      (parameter_list
+    name: (nonTypeName (identifier))
+    methods: (method_prototype
+      name: (identifier)
+      parameters: (parameter_list
         (non_empty_parameter_list
           (parameter
-            (type_ref (base_type (integer_literal)))
-            (name (nonTypeName (identifier)))))))
-    (method_prototype
-      (function_prototype
-        (type_or_void)
-        (name (nonTypeName (identifier)))))))
+            type: (type_ref (base_type (integer_literal)))
+            name: (name (nonTypeName (identifier)))))))
+    methods: (method_prototype
+      function_prototype: (function_prototype
+        return_type: (type_or_void)
+        name: (name (nonTypeName (identifier)))))))
+
 
 ==================
 Extern with return type
@@ -38,36 +40,53 @@ extern Register<T> {
 
 (source_file
   (extern_declaration
-    (nonTypeName (identifier))
-    (type_parameters
+    name: (nonTypeName
+      (identifier))
+    type_parameters: (type_parameters
       (type_parameter_list
-        (name (nonTypeName (identifier)))))
-    (method_prototype
-      (identifier)
-      (parameter_list
+        (name
+          (nonTypeName
+            (identifier)))))
+    methods: (method_prototype
+      name: (identifier)
+      parameters: (parameter_list
         (non_empty_parameter_list
           (parameter
-            (type_ref (base_type (integer_literal)))
-            (name (nonTypeName (identifier)))))))
-    (method_prototype
-      (function_prototype
-        (type_or_void
-          (type_ref (type_name (identifier))))
-        (name (nonTypeName (identifier)))))
-    (method_prototype
-      (function_prototype
-        (type_or_void)
-        (name (nonTypeName (identifier)))
-        (parameter_list
+            type: (type_ref
+              (base_type
+                (integer_literal)))
+            name: (name
+              (nonTypeName
+                (identifier)))))))
+    methods: (method_prototype
+      function_prototype: (function_prototype
+        return_type: (type_or_void
+          (type_ref
+            (type_name
+              (identifier))))
+        name: (name
+          (nonTypeName
+            (identifier)))))
+    methods: (method_prototype
+      function_prototype: (function_prototype
+        return_type: (type_or_void)
+        name: (name
+          (nonTypeName
+            (identifier)))
+        parameters: (parameter_list
           (non_empty_parameter_list
             (parameter
-              (direction)
-              (type_ref (type_name (identifier)))
-              (name (nonTypeName (identifier))))))))))
-
+              direction: (direction)
+              type: (type_ref
+                (type_name
+                  (identifier)))
+              name: (name
+                (nonTypeName
+                  (identifier))))))))))
 ==================
 Extern function
 ==================
+
 
 extern void external_function(bit<8> x, bit<16> y);
 
@@ -75,14 +94,15 @@ extern void external_function(bit<8> x, bit<16> y);
 
 (source_file
   (extern_declaration
-    (function_prototype
-      (type_or_void)
-      (name (nonTypeName (identifier)))
-      (parameter_list
+    function_prototype: (function_prototype
+      return_type: (type_or_void)
+      name: (name (nonTypeName (identifier)))
+      parameters: (parameter_list
         (non_empty_parameter_list
           (parameter
-            (type_ref (base_type (integer_literal)))
-            (name (nonTypeName (identifier))))
+            type: (type_ref (base_type (integer_literal)))
+            name: (name (nonTypeName (identifier))))
           (parameter
-            (type_ref (base_type (integer_literal)))
-            (name (nonTypeName (identifier)))))))))
+            type: (type_ref (base_type (integer_literal)))
+            name: (name (nonTypeName (identifier)))))))))
+

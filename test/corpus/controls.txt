@@ -14,61 +14,60 @@ control MyIngress(inout headers_t hdr) {
 
 (source_file
   (control_declaration
-    (control_type_declaration
-      (name
+    type_declaration: (control_type_declaration
+      name: (name
         (nonTypeName
           (identifier)))
-      (parameter_list
+      parameters: (parameter_list
         (non_empty_parameter_list
           (parameter
-            (direction)
-            (type_ref
+            direction: (direction)
+            type: (type_ref
               (type_name
                 (identifier)))
-            (name
+            name: (name
               (nonTypeName
                 (identifier)))))))
-    (control_body
+    body: (control_body
       (block_statement
-        (conditional_statement
-          (type_name
+        statements: (conditional_statement
+          condition: (type_name
             (identifier))
-          (member
-            (name
+          member: (member
+            name: (name
               (nonTypeName
                 (identifier))))
-          (member
-            (name
+          member: (member
+            name: (name
               (nonTypeName
                 (identifier))))
-          (integer_literal)
-          (block_statement
-            (assignment_or_method_call_statement
+          condition: (integer_literal)
+          consequence: (block_statement
+            statements: (assignment_or_method_call_statement
               (lvalue
                 (lvalue
                   (lvalue
                     (prefixedNonTypeName
                       (nonTypeName
                         (identifier))))
-                  (member
-                    (name
+                  member: (member
+                    name: (name
                       (nonTypeName
                         (identifier)))))
-                (member
-                  (name
+                member: (member
+                  name: (name
                     (nonTypeName
                       (identifier)))))
               (type_name
                 (identifier))
-              (member
-                (name
+              member: (member
+                name: (name
                   (nonTypeName
                     (identifier))))
-              (member
-                (name
+              member: (member
+                name: (name
                   (nonTypeName
                     (identifier)))))))))))
-
 ==================
 Control with table
 ==================
@@ -92,53 +91,52 @@ control MyIngress() {
 
 (source_file
   (control_declaration
-    (control_type_declaration
-      (name
+    type_declaration: (control_type_declaration
+      name: (name
         (nonTypeName
           (identifier))))
-    (control_local_declaration
+    local_declarations: (control_local_declaration
       (table_declaration
-        (name
+        name: (name
           (nonTypeName
             (identifier)))
-        (table_property
-          (key_element
-            (type_name
+        properties: (table_property
+          key_elements: (key_element
+            expression: (type_name
               (identifier))
-            (member
-              (name
+            member: (member
+              name: (name
                 (nonTypeName
                   (identifier))))
-            (member
-              (name
+            member: (member
+              name: (name
                 (nonTypeName
                   (identifier))))
-            (name
+            match_kind: (name
               (nonTypeName
                 (identifier)))))
-        (table_property
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName
+        properties: (table_property
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
                 (nonTypeName
                   (identifier)))))
-          (action_ref_with_annotations
-            (action_ref
-              (prefixedNonTypeName
+          action_refs: (action_ref_with_annotations
+            action_ref: (action_ref
+              name: (prefixedNonTypeName
                 (nonTypeName
                   (identifier))))))))
-    (control_body
+    body: (control_body
       (block_statement
-        (assignment_or_method_call_statement
+        statements: (assignment_or_method_call_statement
           (lvalue
             (lvalue
               (prefixedNonTypeName
                 (nonTypeName
                   (identifier))))
-            (member
-              (name
+            member: (member
+              name: (name
                 (nonTypeName)))))))))
-
 ==================
 Action declaration
 ==================
@@ -151,32 +149,32 @@ action forward(PortId_t port) {
 
 (source_file
   (action_declaration
-    (name
+    name: (name
       (nonTypeName
         (identifier)))
-    (parameter_list
+    parameters: (parameter_list
       (non_empty_parameter_list
         (parameter
-          (type_ref
+          type: (type_ref
             (type_name
               (identifier)))
-          (name
+          name: (name
             (nonTypeName
               (identifier))))))
-    (block_statement
-      (assignment_or_method_call_statement
+    body: (block_statement
+      statements: (assignment_or_method_call_statement
         (lvalue
           (lvalue
             (lvalue
               (prefixedNonTypeName
                 (nonTypeName
                   (identifier))))
-            (member
-              (name
+            member: (member
+              name: (name
                 (nonTypeName
                   (identifier)))))
-          (member
-            (name
+          member: (member
+            name: (name
               (nonTypeName
                 (identifier)))))
         (prefixedNonTypeName
