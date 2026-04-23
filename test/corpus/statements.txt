@@ -50,8 +50,134 @@ action my_action() {
 
 (source_file
   (action_declaration
-    (name
-      (nonTypeName
-        (identifier)))
+    (name (nonTypeName (identifier)))
     (block_statement
       (return_statement))))
+
+==================
+Return with value
+==================
+
+action my_action() {
+    return 0;
+}
+
+---
+
+(source_file
+  (action_declaration
+    (name (nonTypeName (identifier)))
+    (block_statement
+      (return_statement (integer_literal)))))
+
+==================
+Break statement
+==================
+
+control C() {
+    apply {
+        for (bit<8> i = 0; i < 10; i += 1) {
+            if (i == 5) break;
+        }
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration (name (nonTypeName (identifier))))
+    (control_body
+      (block_statement
+        (for_statement
+          (type_ref (base_type (integer_literal)))
+          (name (nonTypeName (identifier)))
+          (integer_literal)
+          (prefixedNonTypeName (nonTypeName (identifier)))
+          (integer_literal)
+          (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+          (integer_literal)
+          (block_statement
+            (conditional_statement
+              (prefixedNonTypeName (nonTypeName (identifier)))
+              (integer_literal)
+              (break_statement))))))))
+
+==================
+Exit statement
+==================
+
+control C() {
+    apply {
+        exit;
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration (name (nonTypeName (identifier))))
+    (control_body
+      (block_statement
+        (exit_statement)))))
+
+==================
+Method call statement
+==================
+
+control C() {
+    apply {
+        pkt.extract(hdr.ethernet);
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration (name (nonTypeName (identifier))))
+    (control_body
+      (block_statement
+        (assignment_or_method_call_statement
+          (lvalue
+            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+            (member (name (nonTypeName (identifier)))))
+          (argument_list
+            (non_empty_arg_list
+              (argument
+                (type_name (identifier))
+                (member (name (nonTypeName (identifier))))))))))))
+
+==================
+Direct application
+==================
+
+control C(inout headers_t hdr) {
+    apply {
+        MyParser.apply(pkt, hdr);
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration
+      (name (nonTypeName (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (direction)
+            (type_ref (type_name (identifier)))
+            (name (nonTypeName (identifier)))))))
+    (control_body
+      (block_statement
+        (assignment_or_method_call_statement
+          (lvalue
+            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+            (member (name (nonTypeName))))
+          (argument_list
+            (non_empty_arg_list
+              (argument (prefixedNonTypeName (nonTypeName (identifier))))
+              (argument (prefixedNonTypeName (nonTypeName (identifier)))))))))))
