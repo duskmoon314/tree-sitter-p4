@@ -1,0 +1,57 @@
+==================
+If-else statement
+==================
+
+control C() {
+    apply {
+        if (true) {
+            x = 1;
+        } else {
+            x = 2;
+        }
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration
+      (name
+        (nonTypeName
+          (identifier))))
+    (control_body
+      (block_statement
+        (conditional_statement
+          (block_statement
+            (assignment_or_method_call_statement
+              (lvalue
+                (prefixedNonTypeName
+                  (nonTypeName
+                    (identifier))))
+              (integer_literal)))
+          (block_statement
+            (assignment_or_method_call_statement
+              (lvalue
+                (prefixedNonTypeName
+                  (nonTypeName
+                    (identifier))))
+              (integer_literal))))))))
+
+==================
+Return statement
+==================
+
+action my_action() {
+    return;
+}
+
+---
+
+(source_file
+  (action_declaration
+    (name
+      (nonTypeName
+        (identifier)))
+    (block_statement
+      (return_statement))))

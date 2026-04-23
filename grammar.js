@@ -95,7 +95,15 @@ export default grammar({
         )
       ),
 
-    preprocessor_directive: ($) => token(/#[^\n]*/),
+    preprocessor_directive: ($) =>
+      token(
+        choice(
+          // Multi-line directive with backslash continuation
+          seq(/#[^\n]*\\\n/, repeat(/[^\n]*\\\n/), /[^\n]*/),
+          // Single-line directive
+          /#[^\n]*/
+        )
+      ),
 
     // ==================== Types ====================
 
