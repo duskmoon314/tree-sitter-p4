@@ -9,14 +9,12 @@
       "file-types": [
         "p4"
       ],
-      "injection-regex": "^p4$",
-      "class-name": "TreeSitterP4",
       "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm",
       "locals": "queries/locals.scm",
       "tags": "queries/tags.scm",
-      "folds": "queries/folds.scm",
-      "indents": "queries/indents.scm",
-      "injections": "queries/injections.scm"
+      "injection-regex": "^p4$",
+      "class-name": "TreeSitterP4"
     }
   ],
   "metadata": {
@@ -38,11 +36,11 @@
   "bindings": {
     "c": true,
     "go": true,
-    "java": false,
+    "java": true,
     "node": true,
     "python": true,
     "rust": true,
-    "swift": false,
+    "swift": true,
     "zig": true
   }
 }
