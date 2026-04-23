@@ -1,0 +1,144 @@
+==================
+Simple table
+==================
+
+control C() {
+    table t {
+        key = {
+            hdr.ethernet.dst_addr: exact;
+        }
+        actions = {
+            forward;
+            drop;
+        }
+    }
+    apply {
+        t.apply();
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration (name (nonTypeName (identifier))))
+    (control_local_declaration
+      (table_declaration
+        (name (nonTypeName (identifier)))
+        (table_property
+          (key_element
+            (type_name (identifier))
+            (member (name (nonTypeName (identifier))))
+            (member (name (nonTypeName (identifier))))
+            (name (nonTypeName (identifier)))))
+        (table_property
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName (nonTypeName (identifier)))))
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName (nonTypeName (identifier))))))))
+    (control_body
+      (block_statement
+        (assignment_or_method_call_statement
+          (lvalue
+            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+            (member (name (nonTypeName)))))))))
+
+==================
+Table with default action
+==================
+
+control C() {
+    table t {
+        key = {
+            hdr.ethernet.dst_addr: exact;
+        }
+        actions = {
+            forward;
+            drop;
+        }
+        const default_action = drop;
+    }
+    apply {
+        t.apply();
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration (name (nonTypeName (identifier))))
+    (control_local_declaration
+      (table_declaration
+        (name (nonTypeName (identifier)))
+        (table_property
+          (key_element
+            (type_name (identifier))
+            (member (name (nonTypeName (identifier))))
+            (member (name (nonTypeName (identifier))))
+            (name (nonTypeName (identifier)))))
+        (table_property
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName (nonTypeName (identifier)))))
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName (nonTypeName (identifier))))))
+        (table_property
+          (nonTableKwName (identifier))
+          (prefixedNonTypeName (nonTypeName (identifier))))))
+    (control_body
+      (block_statement
+        (assignment_or_method_call_statement
+          (lvalue
+            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+            (member (name (nonTypeName)))))))))
+
+==================
+Table with LPM match
+==================
+
+control C() {
+    table t {
+        key = {
+            hdr.ipv4.dst_addr: lpm;
+        }
+        actions = {
+            forward;
+            drop;
+        }
+    }
+    apply {
+        t.apply();
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration (name (nonTypeName (identifier))))
+    (control_local_declaration
+      (table_declaration
+        (name (nonTypeName (identifier)))
+        (table_property
+          (key_element
+            (type_name (identifier))
+            (member (name (nonTypeName (identifier))))
+            (member (name (nonTypeName (identifier))))
+            (name (nonTypeName (identifier)))))
+        (table_property
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName (nonTypeName (identifier)))))
+          (action_ref_with_annotations
+            (action_ref
+              (prefixedNonTypeName (nonTypeName (identifier))))))))
+    (control_body
+      (block_statement
+        (assignment_or_method_call_statement
+          (lvalue
+            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+            (member (name (nonTypeName)))))))))
