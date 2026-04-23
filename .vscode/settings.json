@@ -1,0 +1,12 @@
+{
+  "tree-sitter-vscode.languageConfigs": [
+    {
+      "lang": "p4",
+      "parser": "./tree-sitter-p4.wasm",
+      "highlights": "./queries/highlights.scm",
+      "injections": "./queries/injections.scm",
+      "folds": "./queries/folds.scm",
+    }
+  ],
+  "tree-sitter-vscode.debug": true,
+}

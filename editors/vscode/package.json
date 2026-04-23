@@ -1,0 +1,58 @@
+{
+  "name": "tree-sitter-p4",
+  "displayName": "P4 (Tree-sitter)",
+  "description": "P4-16 language support using tree-sitter",
+  "version": "0.1.0",
+  "publisher": "duskmoon314",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duskmoon314/tree-sitter-p4"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "p4",
+    "p4-16",
+    "tree-sitter",
+    "networking"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:p4"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "p4",
+        "aliases": [
+          "P4",
+          "p4"
+        ],
+        "extensions": [
+          "p4"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "package": "npx @vscode/vsce package",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "web-tree-sitter": "^0.26.8"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.0"
+  }
+}

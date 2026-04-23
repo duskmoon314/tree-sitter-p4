@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Programming Protocol-independent Packet Processors",
   "type": "module",
+  "workspaces": [
+    "editors/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/duskmoon314/tree-sitter-p4.git"
