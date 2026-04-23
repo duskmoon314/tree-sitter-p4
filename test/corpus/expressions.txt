@@ -357,3 +357,57 @@ const bit<48> X = hdr.ethernet.dst_addr;
       (name
         (nonTypeName
           (identifier))))))
+
+==================
+Function call
+==================
+
+action do_something() {
+    count(1);
+}
+
+---
+
+(source_file
+  (action_declaration
+    (name (nonTypeName (identifier)))
+    (block_statement
+      (assignment_or_method_call_statement
+        (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+        (argument_list
+          (non_empty_arg_list
+            (argument (integer_literal))))))))
+
+==================
+Cast expression
+==================
+
+const bit<16> X = (bit<16>) hdr.ethernet.ether_type;
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref (base_type (integer_literal)))
+    (name (nonTypeName (identifier)))
+    (type_ref (base_type (integer_literal)))
+    (type_name (identifier))
+    (member (name (nonTypeName (identifier))))
+    (member (name (nonTypeName (identifier))))))
+
+==================
+Struct literal
+==================
+
+const ethernet_h ETH = { dst_addr = 0, src_addr = 0, ether_type = 0x0800 };
+
+---
+
+(source_file
+  (constant_declaration
+    (type_ref (type_name (identifier)))
+    (name (nonTypeName (identifier)))
+    (kv_list
+      (kv_pair (name (nonTypeName (identifier))) (integer_literal))
+      (kv_pair (name (nonTypeName (identifier))) (integer_literal))
+      (kv_pair (name (nonTypeName (identifier))) (integer_literal)))))
