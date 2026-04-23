@@ -1,0 +1,77 @@
+==================
+Simple package
+==================
+
+package SimpleSwitch(
+    Parser p,
+    Ingress ig,
+    Egress eg,
+    Deparser dep
+);
+
+---
+
+(source_file
+  (type_declaration
+    (package_type_declaration
+      (name (nonTypeName (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier))))
+          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier))))
+          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier))))
+          (parameter (type_ref (type_name (identifier))) (name (nonTypeName (identifier)))))))))
+
+==================
+Instantiation
+==================
+
+control C() {
+    Counter(1024) my_counter;
+    apply {
+        my_counter.count();
+    }
+}
+
+---
+
+(source_file
+  (control_declaration
+    (control_type_declaration (name (nonTypeName (identifier))))
+    (control_local_declaration
+      (instantiation
+        (type_ref (type_name (identifier)))
+        (argument_list
+          (non_empty_arg_list
+            (argument (integer_literal))))
+        (name (nonTypeName (identifier)))))
+    (control_body
+      (block_statement
+        (assignment_or_method_call_statement
+          (lvalue
+            (lvalue (prefixedNonTypeName (nonTypeName (identifier))))
+            (member (name (nonTypeName (identifier))))))))))
+
+==================
+Package instantiation
+==================
+
+SimpleSwitch(
+    MyParser(),
+    MyIngress(),
+    MyEgress(),
+    MyDeparser()
+) main;
+
+---
+
+(source_file
+  (instantiation
+    (type_ref (type_name (identifier)))
+    (argument_list
+      (non_empty_arg_list
+        (argument (named_type (type_name (identifier))))
+        (argument (named_type (type_name (identifier))))
+        (argument (named_type (type_name (identifier))))
+        (argument (named_type (type_name (identifier))))))
+    (name (nonTypeName (identifier)))))

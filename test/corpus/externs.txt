@@ -1,0 +1,88 @@
+==================
+Simple extern
+==================
+
+extern Counter {
+    Counter(bit<32> size);
+    void count();
+}
+
+---
+
+(source_file
+  (extern_declaration
+    (nonTypeName (identifier))
+    (method_prototype
+      (identifier)
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier)))))))
+    (method_prototype
+      (function_prototype
+        (type_or_void)
+        (name (nonTypeName (identifier)))))))
+
+==================
+Extern with return type
+==================
+
+extern Register<T> {
+    Register(bit<32> size);
+    T read();
+    void write(in T value);
+}
+
+---
+
+(source_file
+  (extern_declaration
+    (nonTypeName (identifier))
+    (type_parameters
+      (type_parameter_list
+        (name (nonTypeName (identifier)))))
+    (method_prototype
+      (identifier)
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier)))))))
+    (method_prototype
+      (function_prototype
+        (type_or_void
+          (type_ref (type_name (identifier))))
+        (name (nonTypeName (identifier)))))
+    (method_prototype
+      (function_prototype
+        (type_or_void)
+        (name (nonTypeName (identifier)))
+        (parameter_list
+          (non_empty_parameter_list
+            (parameter
+              (direction)
+              (type_ref (type_name (identifier)))
+              (name (nonTypeName (identifier))))))))))
+
+==================
+Extern function
+==================
+
+extern void external_function(bit<8> x, bit<16> y);
+
+---
+
+(source_file
+  (extern_declaration
+    (function_prototype
+      (type_or_void)
+      (name (nonTypeName (identifier)))
+      (parameter_list
+        (non_empty_parameter_list
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier))))
+          (parameter
+            (type_ref (base_type (integer_literal)))
+            (name (nonTypeName (identifier)))))))))
