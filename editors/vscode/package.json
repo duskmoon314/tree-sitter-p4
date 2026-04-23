@@ -43,7 +43,7 @@
   "scripts": {
     "build": "node esbuild.mjs",
     "watch": "node esbuild.mjs --watch",
-    "package": "npx @vscode/vsce package",
+    "package": "vsce package --no-dependencies",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
@@ -52,6 +52,7 @@
   "devDependencies": {
     "@types/node": "^25.6.0",
     "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.9.1",
     "esbuild": "^0.24.0",
     "typescript": "^5.7.0"
   }
