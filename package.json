@@ -52,7 +52,20 @@
       "optional": true
     }
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "tree-sitter",
+      "tree-sitter-cli"
+    ],
+    "patchedDependencies": {
+      "tree-sitter@0.25.0": "patches/tree-sitter@0.25.0.patch"
+    }
+  },
   "scripts": {
+    "generate": "tree-sitter generate",
+    "grammar:test": "tree-sitter test",
+    "check": "pnpm run generate && pnpm run grammar:test",
     "install": "node-gyp-build",
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",

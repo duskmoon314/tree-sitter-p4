@@ -12,11 +12,8 @@ A [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for [P4-16](
 ## Usage
 
 ```bash
-# Generate the parser
-tree-sitter generate
-
-# Run tests
-tree-sitter test
+# Generate the parser and run grammar checks
+pnpm run check
 
 # Parse a P4 file
 tree-sitter parse example.p4

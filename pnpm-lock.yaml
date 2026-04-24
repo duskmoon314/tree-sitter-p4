@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  tree-sitter@0.25.0:
+    hash: 7e6bbda5f4bcfc154b81e9334130560610a8ecf85d655871022512dc5d72d635
+    path: patches/tree-sitter@0.25.0.patch
+
 importers:
 
   .:
@@ -20,7 +25,7 @@ importers:
         version: 6.0.1
       tree-sitter:
         specifier: ^0.25.0
-        version: 0.25.0
+        version: 0.25.0(patch_hash=7e6bbda5f4bcfc154b81e9334130560610a8ecf85d655871022512dc5d72d635)
       tree-sitter-cli:
         specifier: ^0.26.8
         version: 0.26.8
@@ -2676,7 +2681,7 @@ snapshots:
 
   tree-sitter-cli@0.26.8: {}
 
-  tree-sitter@0.25.0:
+  tree-sitter@0.25.0(patch_hash=7e6bbda5f4bcfc154b81e9334130560610a8ecf85d655871022512dc5d72d635):
     dependencies:
       node-addon-api: 8.7.0
       node-gyp-build: 4.8.4
